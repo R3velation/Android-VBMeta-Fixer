@@ -39,7 +39,7 @@ echo "vbmeta-fixer: service.sh - service started" >> /dev/kmsg
 # Attempt to read the boot hash file until it's available or timeout is reached
 while [ $counter -lt $timeout ]; do
     if [ -f "$BOOT_HASH_FILE" ]; then
-        boot_hash=$(cat "$BOOT_HASH_FILE")
+        boot_hash=$(cat "$BOOT_HASH_FILE" |  tr "[:upper:]" "[:lower:]")
         if [ "$boot_hash" == "null" ]; then
             boot_hash=""
         fi
