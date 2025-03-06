@@ -72,7 +72,7 @@ jobs:
         if: github.event.inputs.module == 'true'
         with:
           tag_name: ${{ env.mod_version }}
-          draft: false
+          draft: true
           prerelease: false
           fail_on_unmatched_files: true
           make_latest: true
